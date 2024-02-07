@@ -1,25 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PokemonApi.Models
+﻿namespace PokemonApi.Models
 {
-    public class Pokemons
+    public class Root
     {
-        [Key]
+        public List<Pokemon> Users { get; set; }
+        public int Total { get; set; }
+        public int Skip { get; set; }
+        public int Limit { get; set; }
+    }
+
+    public class Pokemon
+    {
         public int Id { get; set; }
-        public List<Pokemons> Pokemon { get; set; }
-
         public string? Name { get; set; }
+        public string Height { get; set; }
+        public string Weight { get; set; }
+    }
 
-        public int Height { get; set; }
-
-        public int Weight { get; set; }
-
-        public Pokemons(int id, string name, int height, int weight)
-        {
-            Id = id;
-            Name = name;
-            Height = height;
-            Weight = weight;
-        }
+    public class PokemonViewModel
+    {
+        public Pokemon SelectedPokemon { get; set; }
     }
 }
